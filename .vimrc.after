@@ -1,0 +1,70 @@
+set t_Co=256
+
+colorscheme xoria256
+
+set showmode
+set nowrap
+set tabstop=4
+set smarttab
+set tags=tags
+set expandtab
+set shiftwidth=4
+set shiftround
+set backspace=indent,eol,start " Permite borrar en cualquier parte en modo de insercion
+set autoindent
+set copyindent
+set number
+set ignorecase
+set smartcase
+set timeout timeoutlen=200 ttimeoutlen=100
+set visualbell " No beep
+set noerrorbells " No beep
+set mouse=a
+
+let mapleader = ","
+let g:mapleader = ","
+
+" Guardados rapidos
+nmap <leader>w :w!<cr>
+
+" Bajar es realmente a la siguiente linea
+nnoremap j gj
+nnoremap k gk
+
+" Escapado rapido a modo normal
+imap jj <esc>
+
+" Cambia el directorio para igualar al der archivo abierto ,cd
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+
+" Facilita la navegacion entre splits
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" Para que me envie al inicio de la linea
+nmap ñ ^
+" CTRL + b para Toggle NERDTree
+nmap <C-b> :NERDTreeToggle<cr>
+
+" Muestra el estado parcial del comando
+set showcmd
+
+highlight Search cterm=underline
+
+" Archivos temporales en el directorio de vim
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+
+" Run PHPUnit Tests
+map <leader>t :!phpunit %<cr>
+
+" Powerline
+let g:Powerline_symbols = 'fancy'
+set laststatus=2
+set encoding=utf-8
+set noshowmode
+
+" Luego de una busqueda /TERMS<cr> permite borrar lo seleccionado con :H
+command! H let @/=""
