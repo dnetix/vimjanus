@@ -68,3 +68,6 @@ set noshowmode
 
 " Luego de una busqueda /TERMS<cr> permite borrar lo seleccionado con :H
 command! H let @/=""
+
+inoremap { {}<Left>
+inoremap {{ {}<Left><CR><CR><Up><Tab>
