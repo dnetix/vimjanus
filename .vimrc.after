@@ -69,5 +69,17 @@ set noshowmode
 " Luego de una busqueda /TERMS<cr> permite borrar lo seleccionado con :H
 command! H let @/=""
 
-inoremap { {}<Left>
-inoremap {{ {}<Left><CR><CR><Up><Tab>
+" inoremap {{ {}<Left><CR><CR><Up><Tab>
+
+" Fixing that anoying indentation error when pasting a text, manually
+" using F3 for paste mode toggle or automatically with that function
+set pastetoggle=<F3>
+
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+function! XTermPasteBegin()
+    set pastetoggle=<Esc>[201~
+    set paste
+    return ""
+endfunction
