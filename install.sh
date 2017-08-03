@@ -18,16 +18,16 @@ echo "Moving the files to the HOME Folder..."
 if [ -e "$HOME/.vim" ]
 then
     echo "Removing actual .vim folder"
-    rm "$HOME/.vim/" -Rf
+    rm -Rf "$HOME/.vim/"
 fi
 
-mv .vim "$HOME" -f
-mv .vimrc.after "$HOME" -f
-mv .vimrc.before "$HOME" -f
+mv -f .vim "$HOME"
+mv -f .vimrc.after "$HOME"
+mv -f .vimrc.before "$HOME"
 echo "Creating Symbolic links to the .vimrc and .gvimrc files"
 cd "$HOME"
 ln -sf "$HOME/.vim/janus/vim/vimrc" .vimrc
 ln -sf "$HOME/.vim/janus/vim/gvimrc" .gvimrc
 echo "Deleting vimjanus repository folder"
-rm "$actual_path" -Rf
+rm -Rf "$actual_path"
 echo "All done, have fun!"
